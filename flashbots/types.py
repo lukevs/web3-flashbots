@@ -25,7 +25,6 @@ FlashbotsBundleDictTx = TypedDict(
         "blockNumber": int,
         "from": str,
         "gas": int,
-        "gasPrice": int,
         "hash": HexBytes,
         "input": str,
         "nonce": int,
@@ -55,7 +54,8 @@ SignTx = TypedDict(
         "data": str,
         "value": int,
         "gas": int,
-        "gasPrice": int,
+        "maxFeePerGas": int,
+        "maxPriorityFeePerGas": int,
     },
     total=False,
 )

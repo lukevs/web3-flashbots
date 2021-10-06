@@ -38,7 +38,8 @@ params: TxParams = {
     "from": ETH_ACCOUNT_FROM.address,
     "to": ETH_ACCOUNT_TO.address,
     "value": w3.toWei("1.0", "gwei"),
-    "gasPrice": w3.toWei("1.0", "gwei"),
+    "maxFeePerGas": 0,
+    "maxPriorityFeePerGas": 0,
     "nonce": w3.eth.get_transaction_count(ETH_ACCOUNT_FROM.address),
 }
 
@@ -63,7 +64,7 @@ signed_tx: SignTx = {
     "to": ETH_ACCOUNT_TO.address,
     "value": bribe,
     "nonce": nonce + 1,
-    "gasPrice": 0,
+    "maxFeePerGas": 0,
     "gas": 25000,
 }
 
@@ -77,7 +78,7 @@ bundle = [
             "to": ETH_ACCOUNT_TO.address,
             "value": Wei(123),
             "nonce": nonce,
-            "gasPrice": 0,
+            "maxFeePerGas": 0,
         },
     },
     # the bribe

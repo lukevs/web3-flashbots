@@ -88,9 +88,9 @@ class Flashbots(Module):
 
                 # and update the tx details
                 tx["from"] = signer.address
-                tx["gasPrice"] = 0
                 if "gas" not in tx:
                     tx["gas"] = self.web3.eth.estimateGas(tx)
+
                 # sign the tx
                 signed_tx = signer.sign_transaction(tx)
                 signed_transactions.append(signed_tx.rawTransaction)
@@ -108,7 +108,6 @@ class Flashbots(Module):
                         s=s,
                         data=HexBytes(tx["input"]),
                         gas=tx["gas"],
-                        gasPrice=tx["gasPrice"],
                         nonce=tx["nonce"],
                         to=HexBytes(tx["to"]) if "to" in tx else None,
                         value=tx["value"],
